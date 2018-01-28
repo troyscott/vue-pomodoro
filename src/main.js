@@ -5,6 +5,16 @@ import App from './App'
 
 Vue.config.productionTip = false
 
+Vue.filter('lowercase', (key) => {
+  return key.toLowerCase()
+})
+
+Vue.filter('leftpad', (value) => {
+  if (value >= 10) {
+    return value
+  }
+  return '0' + value
+})
 /* eslint-disable no-new */
 new Vue({
   el: 'app',

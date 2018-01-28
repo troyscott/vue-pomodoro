@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <h2>
-      <span>Pomodoro</span>
+      <span>{{ 'Pomodoro' | lowercase }}</span>
       <control-component></control-component>
     </h2>
-    <state-title-component></state-title-component>
+    <state-title-component v-bind:isworking="isworking"></state-title-component>
     <countdown-component></countdown-component>
     <transition name="fade">
       <kittens-component v-if="kittens"></kittens-component>
@@ -19,7 +19,8 @@ import KittensComponent from './components/KittensComponent'
 import StateTitleComponent from './components/StateTitleComponent'
 
 window.data = {
-  kittens: true
+  kittens: true,
+  isworking: true
 }
 
 export default {
