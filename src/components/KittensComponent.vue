@@ -1,5 +1,8 @@
 <template>
 <div>
+  <div class="well">
+    <img :src="catImgSrc" />
+  </div>
 </div>
 </template>
 

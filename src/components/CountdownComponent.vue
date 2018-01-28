@@ -1,6 +1,10 @@
 <template>
 <div>
-
+  <div class="well">
+    <div class="pomodoro-timer">
+      <span>{{ min }}</span>:<span>{{ sec }}</span>
+    </div>
+  </div>
 </div>
 </template>
 

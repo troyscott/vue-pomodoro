@@ -2,29 +2,13 @@
   <div class="container">
     <h2>
       <span>Pomodoro</span>
-      // Looks like the Conrotls Compoent
-      <button>
-        <i class="glyphicon glyphicon-play"></i>
-      </button>
-      <button>
-        <i class="glyhpicon glyphicon-pause"></i>
-      </button>
-      <button>
-        <i class="glyphicon glyphicon-stop"></i>
-      </button>
+      <control-component></control-component>
     </h2>
-    // Looks lie our StateTitleComponent
-    <h3>{{ title }}</h3>
-    // Looks like our CountdownComponent
-    <div class="well">
-      <div class="pomodoro-timer">
-        <span>{{ min }}</span>:<span>{{ sec }}</span>
-      </div>
-    </div>
-    // Looks like our KittensComponent
-    <div class="well">
-      <img :src="catImgSrc" />
-    </div>
+    <state-title-component></state-title-component>
+    <countdown-component></countdown-component>
+    <transition name="fade">
+      <kittens-component v-if="kittens"></kittens-component>
+    </transition>
   </div>
 </template>
 
@@ -34,8 +18,15 @@ import CountdownComponent from './components/CountdownComponent'
 import KittensComponent from './components/KittensComponent'
 import StateTitleComponent from './components/StateTitleComponent'
 
+window.data = {
+  kittens: true
+}
+
 export default {
   name: 'App',
+  data () {
+    return window.data
+  },
   components: {
     ControlComponent,
     CountdownComponent,
@@ -45,5 +36,12 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-active {
+  opacity: 0
+}
+
 </style>
