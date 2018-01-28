@@ -2,7 +2,7 @@
 <div>
   <div class="well">
     <div class="pomodoro-timer">
-      <span>{{ min + ':' + sec }}</span>
+      <span>{{ min | leftpad }}:{{ sec | leftpad }}</span>
     </div>
   </div>
 </div>
